@@ -1,0 +1,61 @@
+ORG $1000
+START:
+    * Write here your code
+    *si usa il formato word
+    N equ 10
+    move.w a0, d0
+    clr.w d1
+    move.w #3, d2
+for_begin:
+    cmp.w  #N, d1
+    bge    for_end
+    move.w d2,d7
+    add.w  d0,d7
+
+    ;if(t>=20)
+    cmp.w #20,d7
+    bge for_end
+    ;la divisione deve avere formato word per il divisore e long per il dividendo
+    move.w d2,d7
+    ext.l d7   ;sign-extendion per il dividendo della divisione
+    divs #5,d7
+    move.w d7,d6  ; copia il quozioente in un altro registro
+    swap d7       ; resto della divisione nella word d7
+    tst.w d7
+    beq   if_else
+
+    move.w  d2,d4       ;R = z
+    muls d1,d0
+    bra if_end
+
+if_else:
+    move.w d6,d3
+    add.w d3,d4
+
+
+if_end:
+    addi.w #1,d1
+    clr d6
+    move.w d0,d6
+    addi.w #4,d6
+    add.w d6,d2
+    bra for_begin
+for_end:
+    muls #2,d4
+    ;alternativa add.w d4,d4
+    add.w d0,d4
+    move.w d4,a0
+    
+END: * Jump here to end the program
+
+
+* ---METADATA--- do not write below here
+* {
+*     "version": 1,
+*     "description": "",
+*     "name": "esercizioProf",
+*     "language": "M68K",
+*     "createdAt": 1682506649328,
+*     "updatedAt": 1682595187228,
+*     "id": "qqHAyqn"
+* }

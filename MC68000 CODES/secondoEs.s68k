@@ -1,0 +1,17 @@
+ORG $1000
+START:
+    * Write here your code
+
+END: * Jump here to end the program
+
+
+* ---METADATA--- do not write below here
+* {
+*     "version": 1,
+*     "description": "Francesco",
+*     "name": "secondoEs",
+*     "language": "M68K",
+*     "createdAt": 1682706282204,
+*     "updatedAt": 1682706282204,
+*     "id": "suxqHEM"
+* }

@@ -1,0 +1,40 @@
+ORG $2000
+START:
+    * Write here your code
+    move.b #23,d1
+    move.b #9,d2
+    move.b #-11,d3
+
+    
+    add.b d1,d2 ;s2 = s2 + s1
+    add.b #4,d2 ;s2 = s2 + 4
+
+    move.b #14,d4
+    sub.b  d1,d4
+    move.b d2,d3
+    sub.b  d4,d3
+
+    clr.b  d4
+    move.b d2,d4
+    sub.b  d3,d4
+    ;neg d4
+    sub.b #-15,d4
+    move.b d4,d1
+    clr.b d4
+
+
+
+    
+END: * Jump here to end the program
+
+
+* ---METADATA--- do not write below here
+* {
+*     "version": 1,
+*     "description": "",
+*     "name": "primoEsfra",
+*     "language": "M68K",
+*     "createdAt": 1682612474320,
+*     "updatedAt": 1682706244116,
+*     "id": "FoCuCno"
+* }

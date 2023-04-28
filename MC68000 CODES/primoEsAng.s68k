@@ -1,0 +1,36 @@
+ORG $2000
+START:
+    move.b #23,d0
+    move.b #9,d1
+    move.b #-11,d2
+    ;neg d2
+
+    add.b d0,d1
+    add.b #4,d1
+
+    move.b #14,d3
+    sub.b d0,d3
+    move.b d1,d2
+    sub.b d3,d2
+    ;neg d2
+
+    move.b d1,d3
+    sub.b d2,d3
+    move.b d3,d0
+    sub.b #-15,d0
+
+
+
+END: 
+
+
+* ---METADATA--- do not write below here
+* {
+*     "version": 1,
+*     "description": "",
+*     "name": "primoEsAng",
+*     "language": "M68K",
+*     "createdAt": 1682616322050,
+*     "updatedAt": 1682706255967,
+*     "id": "rDyxtIw"
+* }
